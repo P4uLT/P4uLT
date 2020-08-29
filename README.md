@@ -3,7 +3,7 @@
 </div>
 
 <h1 align="center">I'm P4uLT <img src="https://github.com/ABSphreak/ABSphreak/blob/master/gifs/Hi.gif?raw=true" width="30px"> </h1> 
-<h3 align="center">A passionate DevSecOps Enginner from France <img src="https://image.flaticon.com/icons/svg/197/197560.svg" width="20"/></h3>
+<h3 align="center">A passionate DevSecOps Engineer from France <img src="https://image.flaticon.com/icons/svg/197/197560.svg" width="20"/></h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=p4ult" alt="p4ult" /> </p>
 
