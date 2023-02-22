@@ -7,13 +7,13 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=p4ult" alt="p4ult" /> </p>
 
-- 🔭 I’m currently working **@Beys** as a **Technical Lead / DevSecOps**
+- 🔭 I’m currently a botbuster at [**Datadome**](https://datadome.co) as a **Lead Infrastructure Engineer**
 
-- 🌱 I’m currently learning [**Abp Next**](https://abp.io/)
+- 🌱 I’m currently learning how to be build an efficient arch linux environment
 
 - 💬 Ask me about **C# / .Net Core, Java / Spring Boot , Monitoring**
 
-- 👯 I’m looking to collaborate on **a .Net Core project :)**
+- 👯 I’m looking to collaborate on **ESP** project.
 
 - ⚡ Fun fact **I'm really like my profile picture. My hair are really gone**
 
