@@ -420,7 +420,7 @@ class SRE_Engineer:
 
 ---
 
-<sub>🤖 **Automated with ❤️ by P4uLT** | Infrastructure as Code Advocate | SRE Philosopher | Toil Eliminator</sub>
-<sub>⚡ *"Measure Everything, Automate Everything, Sleep Peacefully"* ⚡</sub>
+<sub>🤖 **Automated with ❤️ by P4uLT** | This Footer is Also Monitored | 99.9% Uptime (The .1% is nap time) | Dashboards All The Way Down</sub>
+<sub>⚡ *"Building resilient systems at scale, one metric at a time"* ⚡</sub>
 
 </div>

@@ -119,10 +119,10 @@ module.exports = {
     ],
     finalQuote: "If it's not automated, it's broken ⚡",
     footer: {
-      tagline1: "Infrastructure as Code Advocate",
-      tagline2: "SRE Philosopher",
-      tagline3: "Toil Eliminator",
-      quote: "Measure Everything, Automate Everything, Sleep Peacefully"
+      tagline1: "This Footer is Also Monitored",
+      tagline2: "99.9% Uptime (The .1% is nap time)",
+      tagline3: "Dashboards All The Way Down",
+      quote: "Building resilient systems at scale, one metric at a time"
     }
   }
 };
