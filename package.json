@@ -1,0 +1,22 @@
+{
+  "name": "github-profile-generator",
+  "version": "1.0.0",
+  "description": "Customizable GitHub profile README generator with multiple styles",
+  "main": "scripts/generate.js",
+  "scripts": {
+    "generate": "node scripts/generate.js",
+    "style:status-page": "node scripts/generate.js --style=status-page"
+  },
+  "keywords": [
+    "github",
+    "profile",
+    "readme",
+    "generator"
+  ],
+  "author": "P4uLT",
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "js-yaml": "^4.1.0"
+  }
+}
