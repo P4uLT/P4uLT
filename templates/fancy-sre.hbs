@@ -1,0 +1,336 @@
+<div align="center">
+
+<!-- Status Page Header -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=150&section=header&animation=fadeIn" />
+
+# 📡 {{profile.displayName}} - SRE STATUS PAGE
+
+<img src="https://img.shields.io/badge/STATUS-{{fancySre.statusHeader.systemStatus}}-00FF00?style=for-the-badge&labelColor=1a1a1a&logo=checkmarx&logoColor=00FF00" />
+<img src="https://img.shields.io/badge/UPTIME-{{fancySre.statusHeader.uptime}}%25-00D9FF?style=for-the-badge&labelColor=1a1a1a&logo=toggl&logoColor=00D9FF" />
+<img src="https://img.shields.io/badge/LAST_INCIDENT-{{fancySre.statusHeader.lastIncident}}-00FFD9?style=for-the-badge&labelColor=1a1a1a&logo=clockify&logoColor=00FFD9" />
+
+<br/>
+
+<!-- Real-time Status Indicator -->
+<table>
+<tr>
+{{#each fancySre.systemStatus}}
+<td align="center" width="25%">
+<img src="https://img.shields.io/badge/🟢-{{this.status}}-00FF00?style=flat-square&labelColor=0d1117" />
+<br/><sub><b>{{this.name}}</b></sub>
+</td>
+{{/each}}
+</tr>
+</table>
+
+</div>
+
+<br/>
+
+<!-- Motto Banner -->
+<div align="center">
+
+### 💭 _"{{{sreMojo.motto}}}"_ 💭
+
+</div>
+
+<br/>
+
+<!-- Animated Monitoring GIF -->
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="800" alt="Monitoring Dashboard"/>
+</div>
+
+---
+
+<div align="center">
+
+## 🌐 SYSTEM.CORE.PROFILE()
+
+```python
+class SRE_Engineer:
+    """
+    {{{sreMojo.motto}}}
+    """
+    def __init__(self):
+        self.name = "{{profile.realName}}"
+        self.alias = "{{profile.displayName}}"
+        self.role = "{{profile.title}}"
+        self.company = "{{profile.company}}"
+        self.location = "{{profile.location}}"
+        self.status = "🟢 ONLINE"
+        self.motto = "{{{sreMojo.motto}}}"
+
+    def passions(self):
+        return [
+{{#each fancySre.passions}}
+            "{{{this}}}",
+{{/each}}
+        ]
+
+    def current_mission(self):
+        return "{{{about.currentWork}}}"
+
+    def learning_path(self):
+        return "{{{about.currentlyLearning}}}"
+
+    def expertise(self):
+        return "{{{about.askMeAbout}}}"
+
+    def fun_facts(self):
+        return [
+{{#each sreMojo.funFacts}}
+            "{{{this}}}",
+{{/each}}
+        ]
+```
+
+</div>
+
+---
+
+<div align="center">
+
+<sub>My daily dashboard diet:</sub>
+
+## 🎮 OBSERVABILITY COMMAND CENTER
+
+<table>
+<tr>
+<td valign="top" width="50%">
+
+### 📊 PROMETHEUS CENTRAL
+
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
+
+<table width="100%">
+<tr><th colspan="2">METRICS</th></tr>
+{{#each fancySre.prometheus.metrics}}
+<tr>
+  <td width="60%">📡 {{this.name}}</td>
+  <td><img src="https://img.shields.io/badge/{{this.value}}-{{this.color}}?style=flat-square" /></td>
+</tr>
+{{/each}}
+</table>
+
+</td>
+<td valign="top" width="50%">
+
+### 📈 GRAFANA OBSERVATORY
+
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
+
+<table width="100%">
+<tr><th colspan="2">DASHBOARDS</th></tr>
+{{#each fancySre.grafana.dashboards}}
+<tr>
+  <td width="60%">📊 {{this.name}}</td>
+  <td><img src="https://img.shields.io/badge/{{this.value}}-{{this.color}}?style=flat-square" /></td>
+</tr>
+{{/each}}
+</table>
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+<sub>The principles and lessons that guide my work:</sub>
+
+## 🎯 MY ENGINEERING PHILOSOPHY & WISDOM
+
+<table width="90%">
+<tr>
+<td align="center" width="33%" valign="top">
+<h3>{{sreMojo.principles.[0].icon}}</h3>
+<b>{{sreMojo.principles.[0].title}}</b>
+<br/>
+<sub>{{sreMojo.principles.[0].description}}</sub>
+</td>
+<td align="center" width="33%" valign="top">
+<h3>{{sreMojo.principles.[1].icon}}</h3>
+<b>{{sreMojo.principles.[1].title}}</b>
+<br/>
+<sub>{{sreMojo.principles.[1].description}}</sub>
+</td>
+<td align="center" width="33%" valign="top">
+<h3>{{sreMojo.principles.[2].icon}}</h3>
+<b>{{sreMojo.principles.[2].title}}</b>
+<br/>
+<sub>{{sreMojo.principles.[2].description}}</sub>
+</td>
+</tr>
+<tr>
+<td align="center" colspan="3"><br/></td>
+</tr>
+<tr>
+<td align="center" width="33%" valign="top">
+<h3>{{sreMojo.principles.[3].icon}}</h3>
+<b>{{sreMojo.principles.[3].title}}</b>
+<br/>
+<sub>{{sreMojo.principles.[3].description}}</sub>
+</td>
+<td align="center" width="33%" valign="top">
+<h3>{{sreMojo.principles.[4].icon}}</h3>
+<b>{{sreMojo.principles.[4].title}}</b>
+<br/>
+<sub>{{sreMojo.principles.[4].description}}</sub>
+</td>
+<td align="center" width="33%" valign="top">
+<h3>{{sreMojo.principles.[5].icon}}</h3>
+<b>{{sreMojo.principles.[5].title}}</b>
+<br/>
+<sub>{{sreMojo.principles.[5].description}}</sub>
+</td>
+</tr>
+</table>
+
+<br/>
+
+<sub>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</sub>
+
+<br/>
+
+### 📖 BATTLE-TESTED LESSONS
+
+<table width="90%">
+{{#each sreWisdom.lessons}}
+<tr>
+<td align="left">✅ {{{this}}}</td>
+</tr>
+{{/each}}
+</table>
+
+<br/>
+
+<img src="https://img.shields.io/badge/Still_Learning_(and_Breaking_Things)-00FF94?style=for-the-badge&labelColor=1a1a1a" />
+
+<br/><br/>
+
+<sub>💭 <i>"{{{sreWisdom.quote}}}"</i></sub>
+
+</div>
+
+---
+
+<div align="center">
+
+<sub>Where I put these principles into practice:</sub>
+
+## 🏠 MY PERSONAL SRE PLAYGROUND
+
+<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400" alt="Smart Home Automation"/>
+
+### 🔬 Home Lab: Where Theory Meets Reality
+
+<sub><i>"{{{fancySre.homeLab.quote}}}"</i></sub>
+
+<br/>
+
+![Home Assistant](https://img.shields.io/badge/Home_Assistant-41BDF5?style=for-the-badge&logo=home-assistant&logoColor=white)
+![ESPHome](https://img.shields.io/badge/ESPHome-000000?style=for-the-badge&logo=esphome&logoColor=white)
+![MQTT](https://img.shields.io/badge/MQTT-660066?style=for-the-badge&logo=mqtt&logoColor=white)
+![Node RED](https://img.shields.io/badge/Node--RED-8F0000?style=for-the-badge&logo=node-red&logoColor=white)
+
+<br/>
+
+<table width="80%">
+<tr><th colspan="2">🏗️ HOME LAB METRICS</th></tr>
+{{#each fancySre.homeLab.metrics}}
+<tr>
+  <td width="60%">📟 {{this.name}}</td>
+  <td><img src="https://img.shields.io/badge/{{this.value}}-{{this.color}}?style=flat-square" /></td>
+</tr>
+{{/each}}
+</table>
+
+<br/>
+
+<b>🟢 All automations running smoothly</b>
+
+<br/>
+
+<table width="70%">
+<tr>
+  <td align="center" style="background-color: #1a1a1a; padding: 10px;">
+    <h3>👰 WIFE APPROVAL FACTOR (WAF)</h3>
+    <img src="https://img.shields.io/badge/{{fancySre.homeLab.waf.value}}-{{fancySre.homeLab.waf.color}}?style=for-the-badge&labelColor=1a1a1a" />
+  </td>
+</tr>
+</table>
+
+<br/>
+
+### 🎯 SRE PRINCIPLES APPLIED
+
+<table width="85%">
+{{#each fancySre.homeLab.principlesApplied}}
+<tr><td align="left">✅ <b>{{this.title}}</b> - {{this.description}}</td></tr>
+{{/each}}
+</table>
+
+<br/>
+
+<sub>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</sub>
+
+<br/>
+
+### 🚀 OTHER ADVENTURES
+
+<table width="85%">
+{{#each fancySre.otherAdventures}}
+<tr>
+<td align="left">
+<b>{{this.title}}</b><br/>
+<sub>└─ Status: {{this.status}} | {{this.statusLabel}}</sub>
+</td>
+</tr>
+{{/each}}
+</table>
+
+<br/>
+
+<sub>💭 <i>"{{{fancySre.finalQuote}}}"</i></sub>
+
+</div>
+
+---
+
+<div align="center">
+
+<sub>Let's connect and collaborate:</sub>
+
+## 🔗 COMMUNICATION CHANNELS
+
+<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
+
+### Let's Connect!
+
+{{#if social.linkedin}}
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/{{social.linkedin.id}})
+{{/if}}
+{{#if social.email}}
+[![Email](https://img.shields.io/badge/Email-Reach_Out-181717?style=for-the-badge&logo=github&logoColor=white)](mailto:{{social.email.address}})
+{{/if}}
+{{#if social.stackoverflow}}
+[![Stack Overflow](https://img.shields.io/badge/Stack_Overflow-Contribute-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/{{social.stackoverflow.id}})
+{{/if}}
+
+---
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer&animation=twinkling" />
+
+<img src="https://komarev.com/ghpvc/?username={{profile.username}}&color=00D9FF&style=for-the-badge&label=VISITORS" />
+<img src="https://img.shields.io/github/followers/{{profile.username}}?style=for-the-badge&color=00FF94&labelColor=0d1117&logo=github" />
+
+---
+
+<sub>🤖 **Automated with ❤️ by {{profile.displayName}}** | {{fancySre.footer.tagline1}} | {{fancySre.footer.tagline2}} | {{fancySre.footer.tagline3}}</sub>
+<sub>⚡ *"{{{fancySre.footer.quote}}}"* ⚡</sub>
+
+</div>
