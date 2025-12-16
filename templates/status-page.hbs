@@ -5,16 +5,16 @@
 
 # 📡 {{profile.displayName}} - SRE STATUS PAGE
 
-<img src="https://img.shields.io/badge/STATUS-{{fancySre.statusHeader.systemStatus}}-00FF00?style=for-the-badge&labelColor=1a1a1a&logo=checkmarx&logoColor=00FF00" />
-<img src="https://img.shields.io/badge/UPTIME-{{fancySre.statusHeader.uptime}}%25-00D9FF?style=for-the-badge&labelColor=1a1a1a&logo=toggl&logoColor=00D9FF" />
-<img src="https://img.shields.io/badge/LAST_INCIDENT-{{fancySre.statusHeader.lastIncident}}-00FFD9?style=for-the-badge&labelColor=1a1a1a&logo=clockify&logoColor=00FFD9" />
+<img src="https://img.shields.io/badge/STATUS-{{statusPage.statusHeader.systemStatus}}-00FF00?style=for-the-badge&labelColor=1a1a1a&logo=checkmarx&logoColor=00FF00" />
+<img src="https://img.shields.io/badge/UPTIME-{{statusPage.statusHeader.uptime}}%25-00D9FF?style=for-the-badge&labelColor=1a1a1a&logo=toggl&logoColor=00D9FF" />
+<img src="https://img.shields.io/badge/LAST_INCIDENT-{{statusPage.statusHeader.lastIncident}}-00FFD9?style=for-the-badge&labelColor=1a1a1a&logo=clockify&logoColor=00FFD9" />
 
 <br/>
 
 <!-- Real-time Status Indicator -->
 <table>
 <tr>
-{{#each fancySre.systemStatus}}
+{{#each statusPage.systemStatus}}
 <td align="center" width="25%">
 <img src="https://img.shields.io/badge/🟢-{{this.status}}-00FF00?style=flat-square&labelColor=0d1117" />
 <br/><sub><b>{{this.name}}</b></sub>
@@ -63,7 +63,7 @@ class SRE_Engineer:
 
     def passions(self):
         return [
-{{#each fancySre.passions}}
+{{#each statusPage.passions}}
             "{{{this}}}",
 {{/each}}
         ]
@@ -105,7 +105,7 @@ class SRE_Engineer:
 
 <table width="100%">
 <tr><th colspan="2">METRICS</th></tr>
-{{#each fancySre.prometheus.metrics}}
+{{#each statusPage.prometheus.metrics}}
 <tr>
   <td width="60%">📡 {{this.name}}</td>
   <td><img src="https://img.shields.io/badge/{{this.value}}-{{this.color}}?style=flat-square" /></td>
@@ -122,7 +122,7 @@ class SRE_Engineer:
 
 <table width="100%">
 <tr><th colspan="2">DASHBOARDS</th></tr>
-{{#each fancySre.grafana.dashboards}}
+{{#each statusPage.grafana.dashboards}}
 <tr>
   <td width="60%">📊 {{this.name}}</td>
   <td><img src="https://img.shields.io/badge/{{this.value}}-{{this.color}}?style=flat-square" /></td>
@@ -228,7 +228,7 @@ class SRE_Engineer:
 
 ### 🔬 Home Lab: Where Theory Meets Reality
 
-<sub><i>"{{{fancySre.homeLab.quote}}}"</i></sub>
+<sub><i>"{{{statusPage.homeLab.quote}}}"</i></sub>
 
 <br/>
 
@@ -241,7 +241,7 @@ class SRE_Engineer:
 
 <table width="80%">
 <tr><th colspan="2">🏗️ HOME LAB METRICS</th></tr>
-{{#each fancySre.homeLab.metrics}}
+{{#each statusPage.homeLab.metrics}}
 <tr>
   <td width="60%">📟 {{this.name}}</td>
   <td><img src="https://img.shields.io/badge/{{this.value}}-{{this.color}}?style=flat-square" /></td>
@@ -259,7 +259,7 @@ class SRE_Engineer:
 <tr>
   <td align="center" style="background-color: #1a1a1a; padding: 10px;">
     <h3>👰 WIFE APPROVAL FACTOR (WAF)</h3>
-    <img src="https://img.shields.io/badge/{{fancySre.homeLab.waf.value}}-{{fancySre.homeLab.waf.color}}?style=for-the-badge&labelColor=1a1a1a" />
+    <img src="https://img.shields.io/badge/{{statusPage.homeLab.waf.value}}-{{statusPage.homeLab.waf.color}}?style=for-the-badge&labelColor=1a1a1a" />
   </td>
 </tr>
 </table>
@@ -269,7 +269,7 @@ class SRE_Engineer:
 ### 🎯 SRE PRINCIPLES APPLIED
 
 <table width="85%">
-{{#each fancySre.homeLab.principlesApplied}}
+{{#each statusPage.homeLab.principlesApplied}}
 <tr><td align="left">✅ <b>{{this.title}}</b> - {{this.description}}</td></tr>
 {{/each}}
 </table>
@@ -283,7 +283,7 @@ class SRE_Engineer:
 ### 🚀 OTHER ADVENTURES
 
 <table width="85%">
-{{#each fancySre.otherAdventures}}
+{{#each statusPage.otherAdventures}}
 <tr>
 <td align="left">
 <b>{{this.title}}</b><br/>
@@ -295,7 +295,7 @@ class SRE_Engineer:
 
 <br/>
 
-<sub>💭 <i>"{{{fancySre.finalQuote}}}"</i></sub>
+<sub>💭 <i>"{{{statusPage.finalQuote}}}"</i></sub>
 
 </div>
 
@@ -330,7 +330,7 @@ class SRE_Engineer:
 
 ---
 
-<sub>🤖 **Automated with ❤️ by {{profile.displayName}}** | {{fancySre.footer.tagline1}} | {{fancySre.footer.tagline2}} | {{fancySre.footer.tagline3}}</sub>
-<sub>⚡ *"{{{fancySre.footer.quote}}}"* ⚡</sub>
+<sub>🤖 **Automated with ❤️ by {{profile.displayName}}** | {{statusPage.footer.tagline1}} | {{statusPage.footer.tagline2}} | {{statusPage.footer.tagline3}}</sub>
+<sub>⚡ *"{{{statusPage.footer.quote}}}"* ⚡</sub>
 
 </div>

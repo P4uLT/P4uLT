@@ -14,22 +14,12 @@ This is a GitHub profile repository (P4uLT/P4uLT) containing an automated README
 ```
 P4uLT/
 ├── .claude/
-│   └── commands/
-│       └── git-profile-add.md   # Slash command for creating templates
+│   ├── commands/                # Directory for custom slash commands (currently empty)
+│   └── settings.local.json      # Local Claude Code settings
 ├── scripts/
-│   └── generate.js              # Main generator CLI
+│   └── generate.js              # Main generator CLI with auto-discovery
 ├── templates/
-│   ├── professional.hbs         # Professional style template
-│   ├── minimalist.hbs           # Minimalist style template
-│   ├── detailed.hbs             # Detailed style template
-│   ├── fancy-sre.hbs            # Advanced SRE style template
-│   ├── grafana-dashboard*.hbs   # Grafana-themed templates
-│   ├── prometheus-metrics.hbs   # Prometheus metrics template
-│   ├── sre-status-page.hbs      # SRE status page template
-│   ├── terminal-hacker.hbs      # Terminal hacker style template
-│   ├── k8s-status.hbs           # Kubernetes status template
-│   ├── system-monitor.hbs       # System monitor template
-│   └── api-docs.hbs             # API documentation template
+│   └── status-page.hbs          # SRE-themed status page template
 ├── profile.config.js            # Centralized profile configuration
 ├── package.json                 # Dependencies & npm scripts
 ├── GENERATOR.md                 # Generator documentation
@@ -38,8 +28,8 @@ P4uLT/
 ```
 
 **Key Components**:
-- **Generator Script** (/home/p4ult/Projects/Github/P4uLT/scripts/generate.js): CLI tool with input sanitization, template rendering, and error handling
-- **Templates** (/home/p4ult/Projects/Github/P4uLT/templates/*.hbs): Handlebars templates for different profile styles
+- **Generator Script** (/home/p4ult/Projects/Github/P4uLT/scripts/generate.js): CLI tool with auto-discovery, input sanitization, template rendering, and error handling. Dynamically discovers available templates from the templates/ directory.
+- **Templates** (/home/p4ult/Projects/Github/P4uLT/templates/*.hbs): Handlebars templates for different profile styles. Currently contains status-page.hbs (SRE-themed).
 - **Configuration** (/home/p4ult/Projects/Github/P4uLT/profile.config.js): Single source of truth for all profile data
 
 **Design Principles**:
@@ -54,66 +44,55 @@ P4uLT/
 ## Profile Information
 
 - **Name**: P4uLT (Thomas Samter)
-- **Role**: Lead Infrastructure Engineer at Datadome
+- **Role**: Engineer Manager SRE at Datadome
 - **Location**: France
-- **Expertise**: C# / .Net Core, Java / Spring Boot, Monitoring, Infrastructure
+- **Expertise**: SRE, Observability (Prometheus/Grafana), Infrastructure as Code, Home Automation
 
 ## Generator System
 
 ### How It Works
 
 1. Profile data is defined in `profile.config.js`
-2. Generator script reads configuration and loads selected template
-3. Handlebars renders the template with configuration data
-4. Output is written to `README.md`
+2. Generator script auto-discovers available templates from the templates/ directory
+3. Generator reads configuration and loads selected template
+4. Handlebars renders the template with configuration data, using registered helpers for badges and dates
+5. Output is written to `README.md`
 
 ### Available Styles
 
-**Classic Styles:**
-- **professional**: Modern style with shields.io badges, comprehensive stats (default)
-- **minimalist**: Clean, text-focused with minimal graphics
-- **detailed**: Comprehensive centered layout with multiple stats cards
+Currently available template:
 
-**SRE & Observability Styles:**
-- **fancy-sre**: Advanced SRE profile with observability command center, Prometheus/Grafana dashboards, engineering philosophy
-- **grafana-dashboard**: Grafana-inspired dashboard with metrics visualization
-- **grafana-dashboard-advanced**: Enhanced Grafana dashboard with advanced panels
-- **prometheus-metrics**: Prometheus-style metrics exposition format
-- **sre-status-page**: Status page layout with reliability tracking
-
-**Technical Styles:**
-- **terminal-hacker**: Retro terminal/hacker aesthetic with ASCII art
-- **k8s-status**: Kubernetes-themed profile with cluster status
-- **system-monitor**: System monitoring dashboard layout
-- **api-docs**: API documentation style format
+**SRE Status Page Style:**
+- **status-page**: Advanced SRE-themed profile with:
+  - System status indicators and uptime metrics
+  - Observability command center (Prometheus/Grafana dashboards)
+  - Engineering philosophy and SRE principles
+  - Battle-tested lessons and wisdom
+  - Home lab automation showcase with WAF (Wife Approval Factor)
+  - SRE principles applied to personal projects
 
 ### CLI Usage
 
 ```bash
-# Generate with default style (professional)
+# Generate with default style (professional - fallback if not found)
 npm run generate
 
-# Generate with classic styles
-npm run style:professional
-npm run style:minimalist
-npm run style:detailed
-
-# Generate with SRE & Observability styles
-npm run style:fancy-sre
-npm run style:grafana-dashboard
-npm run style:grafana-dashboard-advanced
-npm run style:prometheus-metrics
-npm run style:sre-status-page
-
-# Generate with technical styles
-npm run style:terminal-hacker
-npm run style:k8s-status
-npm run style:system-monitor
-npm run style:api-docs
+# Generate with status-page style
+npm run style:status-page
 
 # Or use the script directly
-node scripts/generate.js --style=fancy-sre
+node scripts/generate.js --style=status-page
+
+# The generator auto-discovers available templates
+# To see available styles, run without arguments and check the error message
 ```
+
+### Template Auto-Discovery
+
+The generator automatically discovers templates at startup by scanning the templates/ directory for .hbs files. This means:
+- No need to manually update a list of available styles
+- Adding a new template file automatically makes it available
+- The generator will show all available styles if an invalid style is requested
 
 ### Security Features
 
@@ -139,23 +118,8 @@ node scripts/generate.js --style=fancy-sre
 
 **DO**: Edit template files in `/home/p4ult/Projects/Github/P4uLT/templates/`:
 
-Classic Templates:
-- `professional.hbs` - Professional style
-- `minimalist.hbs` - Minimalist style
-- `detailed.hbs` - Detailed style
-
-SRE & Observability Templates:
-- `fancy-sre.hbs` - Advanced SRE style with observability dashboards
-- `grafana-dashboard.hbs` - Grafana dashboard style
-- `grafana-dashboard-advanced.hbs` - Advanced Grafana style
-- `prometheus-metrics.hbs` - Prometheus metrics style
-- `sre-status-page.hbs` - SRE status page style
-
-Technical Templates:
-- `terminal-hacker.hbs` - Terminal hacker aesthetic
-- `k8s-status.hbs` - Kubernetes status layout
-- `system-monitor.hbs` - System monitoring dashboard
-- `api-docs.hbs` - API documentation format
+Currently available template:
+- `status-page.hbs` - Advanced SRE style with observability dashboards, engineering philosophy, home lab showcase
 
 Use Handlebars syntax to access configuration variables:
 ```handlebars
@@ -178,67 +142,68 @@ All data needed by templates must be explicitly defined in profile.config.js. If
 ### Configuration Structure
 
 Key configuration sections in `profile.config.js`:
-- `profile.*` - Basic profile information (username, displayName, title, company, location, tagline, greeting)
-- `about.*` - About section content (currentWork, currentlyLearning, askMeAbout, collaborateOn, funFact)
-- `technologies.*` - Technology categories:
-  - `languages` - Programming languages (Python, Bash)
-  - `observability` - Monitoring tools (Prometheus, Grafana, Loki)
-  - `sre` - SRE/DevOps tools (Docker, Kubernetes, Terraform, Ansible, Jenkins, Traefik, Kafka)
-  - `databases` - Database systems (MariaDB, Elasticsearch)
-  - `hobbies` - Personal projects (Home Assistant, ESPHome, MQTT, Node-RED, 3D Printing)
-- `stats.*` - GitHub stats display options
-- `social.*` - Social media links (LinkedIn, Stack Overflow, email)
-- `sreMojo.*` - SRE-specific sections (motto, funFacts, principles) for SRE-themed templates
-- `personalProjects.*` - Project tracking for SRE templates
-- `statusAlerts.*` - Alert badges configuration
+- `profile.*` - Basic profile information (username, displayName, realName, title, company, location)
+- `about.*` - About section content (currentWork, currentlyLearning, askMeAbout)
+- `social.*` - Social media links (linkedin.id, email.address)
+- `sreMojo.*` - SRE-specific sections:
+  - `motto` - Personal SRE motto
+  - `funFacts[]` - Array of SRE-related fun facts
+  - `principles[]` - Array of engineering principles with icon, title, description
+- `sreWisdom.*` - SRE lessons and quotes:
+  - `lessons[]` - Array of battle-tested lessons
+  - `quote` - Inspirational quote
+- `statusPage.*` - Status page specific configuration:
+  - `statusHeader` - System status, uptime, last incident
+  - `systemStatus[]` - Array of system components and their status
+  - `passions[]` - Array of passion areas
+  - `prometheus.metrics[]` - Prometheus metrics display
+  - `grafana.dashboards[]` - Grafana dashboard display
+  - `homeLab.*` - Home lab configuration including metrics, WAF, and principles
+  - `otherAdventures[]` - Additional project areas
+  - `footer` - Footer taglines and quote
+
+Note: The current configuration is optimized for the status-page template. Legacy configuration sections (technologies, stats, etc.) are validated by the generator but not used by the current template.
 
 ### Technologies
 
-Current technology stack documented in config:
-- **Languages**: Python, Bash
-- **Observability**: Prometheus, Grafana, Loki
-- **SRE/DevOps**: Docker, Kubernetes, Terraform, Ansible, Jenkins, Traefik, Kafka
-- **Databases**: MariaDB, Elasticsearch
-- **Home Automation Hobbies**: Home Assistant, ESPHome, MQTT, Node-RED, 3D Printing
+Current technology stack referenced in the status-page template:
+- **Observability**: Prometheus, Grafana (displayed in the observability command center)
+- **Home Automation**: Home Assistant, ESPHome, MQTT, Node-RED (displayed in home lab section)
+
+Note: The configuration file supports a technologies section with arrays for languages, observability, sre, databases, os, and hobbies, but the current status-page template does not render these. The generator validates these sections if present but treats missing sections as empty arrays.
 
 ## Common Tasks
 
 ### Update Profile Content
 1. Edit `/home/p4ult/Projects/Github/P4uLT/profile.config.js`
-2. Run `npm run generate` or `npm run style:<style-name>`
+2. Run `npm run generate` or `npm run style:status-page`
 3. Verify changes in `README.md`
 4. Commit and push
 
-### Switch Profile Style
+### Generate Profile
 ```bash
-# Classic styles
-npm run style:professional  # For professional look
-npm run style:minimalist    # For clean, simple look
-npm run style:detailed      # For comprehensive display
+# Current available style
+npm run style:status-page     # For SRE status page profile
 
-# SRE & Observability styles
-npm run style:fancy-sre     # For advanced SRE profile
-npm run style:grafana-dashboard  # For Grafana-inspired layout
-npm run style:prometheus-metrics  # For Prometheus metrics format
-npm run style:sre-status-page     # For status page layout
-
-# Technical styles
-npm run style:terminal-hacker  # For terminal/hacker aesthetic
-npm run style:k8s-status       # For Kubernetes theme
-npm run style:system-monitor   # For system monitoring dashboard
-npm run style:api-docs         # For API documentation format
+# Or use the generator directly
+node scripts/generate.js --style=status-page
 ```
 
-### Add New Technology
+### Update Status Page Configuration
 1. Edit `profile.config.js`
-2. Add to appropriate `technologies.*` array with name and icon URL
-3. Regenerate: `npm run generate`
+2. Modify relevant sections:
+   - `statusPage.*` - System status, metrics, dashboards
+   - `sreMojo.*` - Motto, fun facts, principles
+   - `sreWisdom.*` - Lessons and quotes
+   - `statusPage.homeLab.*` - Home lab metrics and WAF
+3. Regenerate: `npm run style:status-page`
 
 ### Create Custom Template
-1. Create new `.hbs` file in `/home/p4ult/Projects/Github/P4uLT/templates/`
-2. Use Handlebars syntax with config variables
-3. Add npm script to `package.json`: `"style:custom": "node scripts/generate.js --style=custom"`
-4. Test: `npm run style:custom`
+1. Create new `.hbs` file in `/home/p4ult/Projects/Github/P4uLT/templates/` (e.g., `my-style.hbs`)
+2. Use Handlebars syntax with config variables from `profile.config.js`
+3. Template will be auto-discovered by the generator
+4. Add npm script to `package.json`: `"style:my-style": "node scripts/generate.js --style=my-style"`
+5. Test: `npm run style:my-style`
 
 ### Troubleshooting
 - **Template not found**: Ensure template file exists in `templates/` directory with `.hbs` extension
@@ -253,11 +218,12 @@ npm run style:api-docs         # For API documentation format
 - `js-yaml@^4.1.0` - YAML parsing (future use)
 
 ### Generator Features
-- Secure input validation
-- Clear error messages
-- Multiple template support
-- Configuration validation
-- Extensible template system
+- **Auto-discovery**: Automatically finds available templates in templates/ directory
+- **Secure input validation**: Sanitizes style names (alphanumeric and hyphens only)
+- **Clear error messages**: Shows available styles when invalid style is requested
+- **Configuration validation**: Validates required config sections and provides warnings for missing optional sections
+- **Handlebars helpers**: Custom helpers for badge generation (badge, socialBadge), date formatting (dateNow, dateDaysAgo)
+- **Extensible template system**: Simply add .hbs files to templates/ directory
 
 ### Best Practices
 - Always regenerate README.md after config changes

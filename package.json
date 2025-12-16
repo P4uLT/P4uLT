@@ -5,21 +5,7 @@
   "main": "scripts/generate.js",
   "scripts": {
     "generate": "node scripts/generate.js",
-    "style:professional": "node scripts/generate.js --style=professional",
-    "style:minimalist": "node scripts/generate.js --style=minimalist",
-    "style:detailed": "node scripts/generate.js --style=detailed",
-    "style:grafana-dashboard": "node scripts/generate.js --style=grafana-dashboard",
-    "style:grafana-dashboard-advanced": "node scripts/generate.js --style=grafana-dashboard-advanced",
-    "style:prometheus-metrics": "node scripts/generate.js --style=prometheus-metrics",
-    "style:sre-status-page": "node scripts/generate.js --style=sre-status-page",
-    "style:sre-status-page-advanced": "node scripts/generate.js --style=sre-status-page-advanced",
-    "style:fancy-sre": "node scripts/generate.js --style=fancy-sre",
-    "style:fancy-sre-v2": "node scripts/generate.js --style=fancy-sre-v2",
-    "style:terminal-hacker": "node scripts/generate.js --style=terminal-hacker",
-    "style:grafana-dashboard-v2": "node scripts/generate.js --style=grafana-dashboard-v2",
-    "style:k8s-status": "node scripts/generate.js --style=k8s-status",
-    "style:system-monitor": "node scripts/generate.js --style=system-monitor",
-    "style:api-docs": "node scripts/generate.js --style=api-docs"
+    "style:status-page": "node scripts/generate.js --style=status-page"
   },
   "keywords": [
     "github",

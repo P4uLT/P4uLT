@@ -6,7 +6,7 @@
 # 📡 P4uLT - SRE STATUS PAGE
 
 <img src="https://img.shields.io/badge/STATUS-ALL_SYSTEMS_OPERATIONAL-00FF00?style=for-the-badge&labelColor=1a1a1a&logo=checkmarx&logoColor=00FF00" />
-<img src="https://img.shields.io/badge/UPTIME-99.99%%25-00D9FF?style=for-the-badge&labelColor=1a1a1a&logo=toggl&logoColor=00D9FF" />
+<img src="https://img.shields.io/badge/UPTIME-99.99%25-00D9FF?style=for-the-badge&labelColor=1a1a1a&logo=toggl&logoColor=00D9FF" />
 <img src="https://img.shields.io/badge/LAST_INCIDENT-90+_DAYS_AGO-00FFD9?style=for-the-badge&labelColor=1a1a1a&logo=clockify&logoColor=00FFD9" />
 
 <br/>

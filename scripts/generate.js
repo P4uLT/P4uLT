@@ -50,8 +50,7 @@ function parseArgs() {
 }
 
 function validateConfig(config) {
-  const required = ['profile', 'about', 'technologies', 'social'];
-  const techCategories = ['languages', 'observability', 'sre', 'databases', 'os', 'hobbies'];
+  const required = ['profile', 'about', 'social'];
 
   required.forEach(key => {
     if (!config[key]) {
@@ -59,14 +58,17 @@ function validateConfig(config) {
     }
   });
 
-  techCategories.forEach(cat => {
-    if (!config.technologies[cat]) {
-      console.warn(`⚠️  Warning: Missing technology category "${cat}", using empty array`);
-      config.technologies[cat] = [];
-    } else if (!Array.isArray(config.technologies[cat])) {
-      throw new Error(`Config error: technologies.${cat} must be an array`);
-    }
-  });
+  if (config.technologies) {
+    const techCategories = ['languages', 'observability', 'sre', 'databases', 'os', 'hobbies'];
+    techCategories.forEach(cat => {
+      if (!config.technologies[cat]) {
+        console.warn(`⚠️  Warning: Missing technology category "${cat}", using empty array`);
+        config.technologies[cat] = [];
+      } else if (!Array.isArray(config.technologies[cat])) {
+        throw new Error(`Config error: technologies.${cat} must be an array`);
+      }
+    });
+  }
 
   if (!config.profile.username) {
     throw new Error('Missing required field: profile.username');
